@@ -1,0 +1,57 @@
+.project_container
+{
+    width:70%;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    // row-gap: 20px;
+    padding: 20px 0;
+    .my_projects
+    {
+        width:100%;
+        height:50%;
+        margin-bottom:40px;
+        &>p {
+            font-size:1.5rem;
+            font-weight: 700;
+            margin-bottom:20px;
+        }
+        .list_project_items
+        {
+            display:grid;
+            grid-template-columns: repeat(3,1fr);
+            column-gap: 20px;
+        }
+    }
+    .shared_projects
+    {
+        width:100%;
+        height:50%;
+        // min-height: 300px;
+        
+        &>p {
+            font-size:1.5rem;
+            font-weight: 700;
+            margin-bottom:20px;
+        }
+        .list_project_items
+        {
+            display:grid;
+            grid-template-columns: repeat(3,1fr);
+            column-gap: 20px;
+        }
+
+
+    }
+    // .tracking_and_event
+    // {
+    //     display:grid;
+    //     grid-template-columns: 1fr 1fr 1fr 2fr;
+    //     grid-template-rows: 1fr 1fr 1fr 2fr;
+    //     column-gap: 30px;
+    //     div {
+    //         height:120px; 
+    //         background-color: aqua;
+    //     }
+    // }
+}

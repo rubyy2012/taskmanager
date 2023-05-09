@@ -1,0 +1,71 @@
+.project_container
+{
+    display:flex;
+    .side_tasks_container
+    {
+        flex: 3;
+        display:flex;
+        flex-direction: column;
+        border: 1px solid #eaeaed;
+        .side_tasks_header
+        {
+            display:flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            // background-color: aliceblue;
+            border-bottom: 1px solid #eaeaed;
+            .project_members
+            {
+                display:flex;
+                .project_name
+                {
+                    display: flex;
+                    align-items: center;
+                    &>span {
+                        color: #252e3c;
+                        font-weight: 600;
+                        font-size: 1.1rem;
+                    }
+                    .drop_icon
+                    {
+                        color: #878d97;
+                        cursor:pointer;
+                        margin-left: 2px;
+                        font-size: 1.2rem;
+                    }
+                }
+                .members
+                {
+                    margin-left: 20px;
+                }
+                
+            }
+            .project_tools
+                {
+                    display:flex;
+                    .btn_add_member
+                    {
+                        font-size: 0.7rem;
+                        font-weight: 600;
+                        padding: 4px 10px;
+                        background-color: #48a6a6;
+                        text-transform: capitalize;
+                        border-radius: 14px !important;
+                        -webkit-border-radius: 14px !important;
+                        -moz-border-radius: 14px !important;
+                        -ms-border-radius: 14px !important;
+                        -o-border-radius: 14px !important;
+                    }
+                }
+        }
+        .alltasks_container
+        {
+            height:100vh;
+            padding: 0 20px;
+        }
+    }
+    .detailtask_container
+    {
+        flex: 1;
+    }
+}

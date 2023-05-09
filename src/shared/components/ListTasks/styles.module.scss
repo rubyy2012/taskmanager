@@ -1,0 +1,72 @@
+.listtasks_container
+{
+    margin-top:30px;
+    .listtasks_body
+    {
+        display:flex;
+        flex-direction: column;
+        gap: 8px;
+            .listtasks_title
+            {
+                display:flex;
+                align-items: center;
+                column-gap: 5px;
+                cursor: pointer;
+                margin-bottom: 0.5rem;
+                .dropdown_icon
+                {
+                    color: #79808a;
+                    font-size: 0.9rem;
+                }
+                .tag_name
+                {
+                    color: #1b2030;
+                    font-size: 1rem;
+                    font-weight: bolder;
+                }
+                &>span {
+                    font-size: 0.9rem;
+                    color: #7f838b;
+                }
+            }
+            .listtasks_content
+            {
+               
+                .listtasks_group {
+                    display:flex;
+                    flex-direction: column;
+                    gap: 14px;
+                }
+                .btn_Add_task
+                {
+                    width: 100%;
+                    margin-top: 14px;
+                    cursor:pointer;
+                    padding: 5px 10px;
+                    border: 2px dashed #e9e9ea;
+                    color: #48a6a6;
+                    background-color: #ffff;
+                    font-size: 0.9rem;
+                    font-weight: 550;
+                    border-radius: 8px;
+                    -webkit-border-radius: 8px;
+                    -moz-border-radius: 8px;
+                    -ms-border-radius: 8px;
+                    -o-border-radius: 8px;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 8px;
+                    line-height: 1;
+                    justify-content: flex-start;
+                    .icon_add
+                    {
+                        color: #48a6a6;
+                        font-size: 1.3rem;
+                    }
+                    &:hover {
+                        background-color: #fafafb;
+                    }
+                }
+            }
+    }
+}

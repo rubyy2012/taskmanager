@@ -1,0 +1,18 @@
+.label_color
+    {
+        background-color: transparent;
+        border:none;
+        cursor:pointer;
+        //width: 32px;
+        //height: 32px;
+        padding: 12px 24px;
+        border-radius: 10%;
+        -webkit-border-radius: 10%;
+        -moz-border-radius: 10%;
+        -ms-border-radius: 10%;
+        -o-border-radius: 10%;
+        &:hover 
+        {
+            opacity: 0.6;
+        }
+    }

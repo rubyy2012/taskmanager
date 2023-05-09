@@ -1,0 +1,113 @@
+@import '../../../commons/commonStyles.module.scss';
+.side_bar_group
+{
+    display:flex;
+    flex-direction:column;
+    width: 100%;
+    .upcoming_projects
+    {
+        width:100%;
+        display:flex;
+        flex-direction: column;
+        .day_item
+        {
+            width:100%;
+            padding: 10px 0;
+            text-align: left;
+            display:flex;
+            justify-content:space-between;
+            align-items: center;
+            .day_item_left {
+                display:flex;
+                align-items: center;
+                color:$text-color;
+                .add_icon,
+                p {
+                    color: #ffff;
+                }
+                p {
+                    margin-left:0.5rem;
+                    flex:1; 
+                    color:$text-color;
+                    font-weight: 600;
+                }
+                .today_icon {
+                    color: #ea5fc7;
+                }
+                .upcoming_icon 
+                {
+                    color: #66c3c2;
+                }
+            }
+            .day_item_right 
+            {
+                span {
+                    color: $digit-color;
+                }
+            }
+        }
+    }
+
+    .workspaces_container
+    {
+        display:flex;
+        flex-direction: column;
+        padding-top: 3rem;
+        .workspaces
+        {
+            display:flex;
+            justify-content: space-between;
+            padding-bottom: 10px;
+            &>p {
+                color: #b6b7be;
+                font-size: 0.9rem;
+            }
+            .options {
+                display:flex;
+                align-items: center;
+                .workspace_icon
+                {
+                    color: #b6b7be;
+                    margin-left:2px;
+                    font-size: 1rem;
+                }
+            }
+        }
+        .list_menu_container
+        {
+            display:flex;
+            ul.list_menu_ul
+            {
+                display:flex;
+                flex-direction: column;
+                width:100%;
+                list-style-type: none;
+                .dashboard_icon
+                {
+                    color: orange;
+                }
+                .allprojects_icon {
+                    color:#B2A4FF;
+                }
+                .timelines_icon {
+                    color: #19A7CE;
+                }
+                &>span {
+                    margin-left:5px;
+                }
+                .dropdown_icon 
+                {
+                    color: #7c8389;
+                }
+
+            }
+        }
+    }
+    
+    .side_bar_item
+    {
+        width:100%;
+        display:flex;
+        margin-bottom:10px;
+    }
+}

@@ -1,0 +1,23 @@
+.item_link
+{
+    text-decoration: none;
+    display: block;
+    width:100%;
+    text-align: left;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    color:#9f9f9f;
+    &:hover 
+    {
+        background-color: #eae9e9;
+        border-radius:3px        ;
+        -webkit-border-radius:3px        ;
+        -moz-border-radius:3px        ;
+        -ms-border-radius:3px        ;
+        -o-border-radius:3px        ;
+    }
+}
+.item_link.active 
+{
+    color: #000;
+}
