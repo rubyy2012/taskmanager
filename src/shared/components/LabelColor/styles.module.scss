@@ -1,12 +1,15 @@
 .label_color_container
 {
     padding: 20px;
-    min-width: 400px;
-    background-color: aliceblue;
+    min-width: 300px;
+    // background-color: aliceblue;
+    background-color: #fff;
+    border:1px solid #a5a5ad;
     border-radius: 8px;
     position:absolute;
     top: 0;
     left: 0;
+    z-index: 2;
     .label_color_body {
         width: 100%;
         height:auto;
@@ -33,7 +36,6 @@
             width: 100%;
             margin-top: 20px;
             display:flex;
-            // flex-direction: column;
             flex-wrap: wrap;
             justify-content: flex-start;
             box-sizing: border-box;

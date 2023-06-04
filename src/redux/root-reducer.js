@@ -1,31 +1,7 @@
-/**
- * ****************************************************************************
- * @description     :   Combinie all reducers on app
- * @created at      :   2020/12/03
- * @created by      :   QuyPN - quy.pham@toploop.co
- * @package         :   dashlite-admin-react
- * @copyright       :   Copyright (c) TOPLOOP
- * @version         :   1.0.0
- * ****************************************************************************
- */
-
-/**
- * import libraries
- */
 import { combineReducers } from 'redux';
-import AppReducer from './app/reducer';
-import LocationReducer from './address/reducer';
-import SupplierReducer from './supplier/reducer';
-/**
- * Combinie all reducers on app
- * -----------------------------------------
- * @author : QuyPN - 2020/12/03 - create
- * @access : public
- */
+import UserReducer from './users/UserReducer';
 const rootReducer = combineReducers({
-    App: AppReducer,
-    Location: LocationReducer,
-    Supplier: SupplierReducer,
+    user: UserReducer,
 });
 
 export default rootReducer;

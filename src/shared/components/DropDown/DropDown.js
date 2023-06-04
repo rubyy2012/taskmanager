@@ -12,7 +12,7 @@ const DropDown = ({listItems,active}) => {
   return (
     <div className={`${styles.dropdown_container} ${active?styles.open:''}`}>
                 {
-                    listItems.map((item,index)=> (
+                    listItems?.map((item,index)=> (
                         <LinkItem
                           key={index}
                           link={item.link}

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './styles.module.scss';
 import { IoCalendarOutline } from "react-icons/io5";
 import ColorItem from '../ColorItem/ColorItem';
-import { Avatar, AvatarGroup } from '@mui/material';
+import { Avatar, AvatarGroup, Button } from '@mui/material';
 import avatar from '../../../assets/images/avatar.jpg';
 import { Link } from 'react-router-dom';
 import { TiAttachment } from "react-icons/ti";
@@ -15,8 +15,9 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useState } from 'react';
 import useOnClickOutside from '../../../hooks/useOnClickOutside';
 import { useRef } from 'react';
-import { Draggable } from 'react-beautiful-dnd';
-const Task = ({placeholder,link,task,myref,...props}) => {
+import ChecklistIcon from '@mui/icons-material/Checklist';
+
+const Task = ({taskDetailForm,setOpenTaskDetailForm,placeholder,link,task,myref,...props}) => {
     const ref = useRef();
     useOnClickOutside(ref, () => setOpenMore(false));
     const [openMore,setOpenMore] = useState(false);
@@ -41,6 +42,14 @@ const Task = ({placeholder,link,task,myref,...props}) => {
                                 btn_low = 'btn_low'
                                 text = 'Low'
                             />
+                        </div>
+                        <div className={styles.card_checklist_areas}>
+                            <Button 
+                                className= {styles.btn_checklist}
+                                variant="outlined" 
+                                startIcon={<ChecklistIcon className={styles.checklist_icon}/>}>
+                                3/10
+                            </Button>
                         </div>
                         <div className={styles.attachment_areas}>
                                 {
@@ -87,6 +96,7 @@ const Task = ({placeholder,link,task,myref,...props}) => {
                                     ))
                                 }
                             </div>
+                           
                             <div className={styles.member_container}>
                                 <AvatarGroup
                                         className={styles.avatar_group}
@@ -118,6 +128,7 @@ const Task = ({placeholder,link,task,myref,...props}) => {
                                             <div className={styles.edit_container}>
                                                 <EditIcon className={styles.icon}/>
                                                 <Link
+                                                    onClick = {()=>setOpenTaskDetailForm(true)}
                                                     to = ''
                                                     className={styles.link_edit}
                                                 >Edit</Link>

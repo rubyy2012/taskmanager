@@ -10,19 +10,12 @@ li.menu_item_li{
     {
         display:flex;
         justify-content: space-between;
-        .dashboard_icon
-        {
-            color: orange;
-        }
-        .allprojects_icon {
-            color:#B2A4FF;
-        }
-        .timelines_icon {
-            color: #19A7CE;
-        }
+        align-items: center;
         &>span {
             margin-left:5px;
             font-weight: 600;
+            color: #606161;
+            font-size: 0.9rem;
         }
 
     }
@@ -32,21 +25,10 @@ li.menu_item_li{
         align-items: center;
         .dropdown_icon 
         {
-            color: #7c8389;
+            color: #545454;
         }
     }
 }
-
-// .dropdown_container
-// {
-//     display:none;
-//     // visibility: visible;
-// }
-// .dropdown_container.open {
-//     display:block;
-//     animation: dropdown ease-in 0.5s;
-//     -webkit-animation: dropdown ease-in 0.5s;
-// }
 @keyframes dropdown {
     from {
         opacity:0;

@@ -45,6 +45,30 @@
             }
            
         }
+        .card_checklist_areas
+            {
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                .btn_checklist
+                {
+                    justify-content: flex-start;
+                    padding: 4px 10px;
+                    font-size: 0.7rem;
+                    .checklist_icon{
+                        font-size: 0.7rem;
+                    }
+    
+                }
+                .btn_checklist.isCompleted 
+                {
+                    color: #7fbfae;
+                    border-color:#7fbfae;
+                    .checklist_icon{
+                        color: #7fbfae;
+                    }
+                }
+            }
         .attachment_areas
         {
             display: flex;
@@ -101,7 +125,8 @@
                     -moz-border-radius: 50%;
                     -ms-border-radius: 50%;
                     -o-border-radius: 50%;
-}
+            }
+            
             }
             .member_container
             {

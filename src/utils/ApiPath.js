@@ -19,3 +19,24 @@
 //         return path.replace(":id", id)
 //     }
 // }
+
+const prefix = 'https://localhost:7070/'
+export default class ApiPath {
+    //authen
+    static LOGIN = prefix + 'Account/login';
+    //workspace
+    static GET_ALL_WORKSPACES = prefix + 'api/Workspace/me';
+    static EDIT_WORKSPACE = prefix + 'api/Workspace/:id';
+    static DELETE_WORKSPACE = prefix + 'api/Workspace/:id';
+    static GET_DETAIL_WORKSPACE = prefix +  'api/Workspace/:id';
+    static CREATE_WORKSPACE = prefix +  'api/Workspace';
+    //task
+    static CREATE_TASK = prefix +  'api/TaskItem';
+    static GET_DETAIL_TASK = prefix +  'api/TaskItem/:id';
+    static EDIT_TASK = prefix + 'api/TaskItem/:id';
+    static DELETE_TASK = prefix + 'api/TaskItem/:id';
+    static UPLOAD_FILE = prefix + 'api/TaskItem/:id/upload-file';
+    static getRouteWithId (path, id) {
+        return path.replace(":id", id)
+    }
+}

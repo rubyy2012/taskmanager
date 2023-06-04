@@ -1,74 +1,41 @@
 import React from 'react'
 import styles from './styles.module.scss';
-import ListTasks from '../../../components/ListTasks/ListTasks';
-import ListTasksApi from '../../../../api/ListTasksApi';
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Avatar, AvatarGroup, Button } from '@mui/material';
 import avatar from '../../../../assets/images/avatar.jpg';
-import TaskDetail from '../../../components/task-detail/TaskDetail';
-import { DragDropContext } from 'react-beautiful-dnd';
 import { useState } from 'react';
-import { BsListTask } from 'react-icons/bs';
-import myWorkspaces from '../../../../api/WorkspaceApi';
+import Notification from '../../../components/notifycation/Notification';
+import { BiNotification } from "react-icons/bi";
+import project_image from '../../../../assets/icons/project_icon.png'
+import ListViews from '../../../components/list-views/ListViews';
+import { Outlet } from 'react-router-dom';
+import AddMemberForm from '../../../components/add-member/AddMemberForm';
+import TaskDetailContainer from '../task-detail-container/TaskDetailContainer';
 const ProjectContainer = () => {
-  const cards = myWorkspaces.data.Workspace.cards;
-  const [tabs,setTabs] = useState(cards);
-
-  const HandleOnDragEnd = (result) => {
-    const {source, destination} = result;
-    if (!destination) {
-      return;
-    }
-    if(destination.droppableId===source.droppableId&&
-      destination.index===source.index)
-      {
-        return;
-      }
-    //handle
-    const sourceColIndex = tabs?.findIndex(item=>item.id.toString()=== source.droppableId.toString());
-    const desColIndex = tabs?.findIndex(e=>e.id.toString() === destination.droppableId.toString())
-    //in the same column
-    if(destination.droppableId===source.droppableId)
-    {
-      const sourceRowIdx = source.index;
-      const desRowIdx = destination.index;
-      const sourceCol = tabs[sourceColIndex];
-      const sourceTasks = sourceCol.taskItems[sourceRowIdx];
-      const destinationTasks = sourceCol.taskItems[desRowIdx];
-      tabs[sourceColIndex].taskItems[desRowIdx] = sourceTasks;
-      tabs[sourceColIndex].taskItems[sourceRowIdx] = destinationTasks;
-      
-      setTabs(tabs);
-    }
-    // different column
-    if (destination.droppableId!==source.droppableId)
-    {
-      const sourceCol = tabs[sourceColIndex];
-      const desCol = tabs[desColIndex];
-      const sourceTasks = [...sourceCol.taskItems];
-      const destinationTasks = [...desCol.taskItems];
-      const [removed] = sourceTasks.splice(sourceTasks.index, 1);
-      destinationTasks.splice(destinationTasks.index,0,removed);
-      tabs[sourceColIndex].taskItems = sourceTasks;
-      tabs[desColIndex].taskItems = destinationTasks;
-      // console.log(destinationTasks)
-      const newTab = tabs;
-      setTabs(newTab);
-    }
-  }
-  console.log(tabs);
-
+  const [addMemberForm,setOpenAddMemberForm] = useState(false);
+  const [notification,setOpenNotification] = useState(false);
 
   return (
     <div className={styles.project_container}>
         <div className={styles.side_tasks_container}>
           <div className={styles.side_tasks_header}>
             <div className={styles.project_members}>
-              <div className={styles.project_name}>
-                <span>Design Plan</span>
-                <MdOutlineKeyboardArrowDown className={styles.drop_icon}/>
+              <div className={styles.project_name_container}>
+                <div className={styles.project_image_container}>
+                  <img 
+                    src={project_image}
+                    alt="error"/>
+                </div>
+                <div className={styles.list_view_project}>
+                    <span>Design Plan</span>
+                    <div className={styles.list_view_menu}>
+                        <ListViews/>
+                    </div>
+                </div>
               </div>
-              <div className={styles.members}>
+             
+            </div>
+            <div className={styles.project_tools}>
+            <div className={styles.members}>
                 <AvatarGroup
                         className={styles.avatar_group}
                         sx={{
@@ -113,52 +80,31 @@ const ProjectContainer = () => {
                         />
                 </AvatarGroup>
               </div>
-            </div>
-            <div className={styles.project_tools}>
                 <Button 
+                  onClick={()=>setOpenAddMemberForm(!addMemberForm)}
                   className={styles.btn_add_member}
                   variant="contained">Add members</Button>
-              </div>
-          </div>
-          <div className={styles.alltasks_container}>
-            <DragDropContext onDragEnd={HandleOnDragEnd}>
-                {
-                  tabs?.map(tab=> (
-                    <ListTasks 
-                      id = {tab.id.toString()}
-                      tag = {tab.name}
-                      number = '8'
-                      tasks = {tab?.taskItems}/>
-                  ))
-                }
-                {/* <ListTasks 
-                    id = 'Todos'
-                    tag = 'Todos'
-                    number = '8'
-                    tasks = {ListTasksApi.Todos}
-                />
-                <ListTasks
-                  id = 'InProgress'
-                  tag = 'In Progress'
-                  number = '3'
-                  tasks = {ListTasksApi.InProgress}
-                />
-                <ListTasks
-                  id = 'Completed'
-                  tag = 'Completed'
-                  number = '5'
-                  key='4'
-                  tasks = {ListTasksApi.Completed}
-                /> */}
-            </DragDropContext>
-              
+                  <BiNotification
+                      onClick = {()=>setOpenNotification(!notification)}
+                      className={styles.icon_notify}
+                  />
             </div>
-      </div>
+          </div>
+              <Outlet />
+
+              <Notification
+                notification = {notification}
+                setOpenNotification = {setOpenNotification}
+              />
+              <AddMemberForm
+                addMemberForm = {addMemberForm}
+                setOpenAddMemberForm ={setOpenAddMemberForm}
+              />
+        </div>
       
-      {/* <div className={styles.detailtask_container}>
-            <TaskDetail/>
-      </div> */}
     </div>
   )
 }
 export default ProjectContainer;
+
+

@@ -4,25 +4,31 @@ import { Controller, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import styles from './styles.module.scss';
 import { yupResolver } from '@hookform/resolvers/yup'; 
-import AuthenLayout from '../layouts/authen/AuthenLayout';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import UserAction from '../../../redux/users/UserAction.js'
+// import { useNavigate } from 'react-router-dom';
+
 const RegisterContainer = () => {
+  const dispatch = useDispatch()
+  const {control, handleSubmit, formState: { errors } } = useForm();
   const schema = yup.object().shape({
+    email:yup.string().required('Bạn phải nhập email'),
     username: yup.string().required('Bạn phải nhập tên người dùng'),
     password: yup.string().min(6, 'Mật khẩu phải chứa tối thiểu 6 ký tự').required('Bạn phải nhập mật khẩu!'),
   });
+  // const navigate = useNavigate()
   const onSubmit = async (data) => {
-    console.log(data);
+     dispatch({
+      type: UserAction.REQUEST_REGISTER,
+      payload: {
+        data: data,
+        callback: {
+          // gotoConfirm : (confirmEmailPath)=> navigate(confirmEmailPath)
+        }
+      }
+     })
   }
-//   const {control, handleSubmit, formState: { errors } } = useForm({
-//     resolver: yupResolver(schema),
-//       defaultValues: {
-//         username: '',
-//         password: ''
-//       }
-//   });
-
-  const {control, handleSubmit, formState: { errors } } = useForm();
   return (
     <div className={styles.form_submit_container}>
     <div className={styles.form_submit_body}>
@@ -36,15 +42,6 @@ const RegisterContainer = () => {
                             margin="normal"
                             id="outlined-required"
                             label="Họ tên"/>}/>
-        <Controller
-            control={control}
-            name="username"    
-            render={({ field }) => <TextField {...field}  
-                            fullWidth={true}
-                            margin="normal"
-                            id="outlined-required"
-                            label="Tên đăng nhập"/>}
-          />
         <Controller
             control={control}
             name="email"           
