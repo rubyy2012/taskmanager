@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import DropDown from '../DropDown/DropDown'
 const MenuItem = (props) => {
     const {itemIcon,itemText,dropDownIcon,listItems} = props
-    const [active,setActive] = useState(false)
+    const [active,setActive] = useState(true)
     return (
         <li 
             className={styles.menu_item_li}>
@@ -15,13 +15,18 @@ const MenuItem = (props) => {
                             {itemIcon}
                             <span>{itemText}</span>
                         </div>
-                        <div className={styles.dropdown_icon_container}>
-                            {dropDownIcon}
-                        </div>
+                        {
+                            listItems&& (
+                                <div className={styles.dropdown_icon_container}>
+                                    {dropDownIcon}
+                                </div>
+                            )
+                        }
+                        
                 </div>
                 <DropDown
                     active = {active}
-                    listItems = {listItems.data}
+                    listItems = {listItems?.data}
                 />
         </li>
   )

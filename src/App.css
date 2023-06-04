@@ -1,3 +1,16 @@
+
+/* @import "../node_modules/@syncfusion/ej2-base/styles/material.css"; */
+@import "../node_modules/@syncfusion/ej2-base/styles/material";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material";
+@import "../node_modules/@syncfusion/ej2-calendars/styles/material";
+@import "../node_modules/@syncfusion/ej2-dropdowns/styles/material";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material";
+@import "../node_modules/@syncfusion/ej2-lists/styles/material";
+@import "../node_modules/@syncfusion/ej2-navigations/styles/material";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material";
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material";
+@import "../node_modules/@syncfusion/ej2-react-schedule/styles/material";
+
 .App {
   text-align: center;
 }

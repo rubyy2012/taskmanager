@@ -3,13 +3,15 @@ import styles from './styles.module.scss';
 import Task from '../Task/Task';
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
-import { IoIosAdd } from "react-icons/io";
 import { useState } from 'react';
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import { Draggable, Droppable } from 'react-beautiful-dnd';
+import TaskDetailContainer from '../../containers/users/task-detail-container/TaskDetailContainer';
 const ListTasks = ({tag,number,tasks,id}) => {
   const [toggle,setToggle] = useState(false)
-  // console.log('tasks',tasks)
+  console.log(toggle)
   console.log('tasks',tasks)
+  const [taskDetailForm,setOpenTaskDetailForm] = useState(false);
+
   return (
         <div className={styles.listtasks_container}>      
           <div className={styles.listtasks_body}>
@@ -25,19 +27,30 @@ const ListTasks = ({tag,number,tasks,id}) => {
               </p>
               <span>({number})</span>
             </div>
+           
             {
               toggle&&
               <div className={styles.listtasks_content}>
-                <Droppable droppableId={id}>
+                <Droppable 
+                  isDropDisabled={false}
+                  droppableId={id}>
                 {
                   (provided)=> (
                   <div 
                       {...provided.droppableProps}
                       ref={provided.innerRef}
                       className={styles.listtasks_group}>
+                       {
+                          tasks.length===0&& (
+                            <div className={styles.placeholder}>
+                              {provided.placeholder}
+                              <p>Bạn chưa có task nào!</p>
+                            </div>
+                          )
+                        }
                       {
                         tasks?.map((task,index)=>(
-                          <Draggable
+                            <Draggable
                             key={task.id}
                             index={index}
                             {...provided.draggableProps}
@@ -45,31 +58,31 @@ const ListTasks = ({tag,number,tasks,id}) => {
                             draggableId={task.id.toString()}>
                                 {
                                 (provided) => (
-                                <Task
-                                  myref = {provided.innerRef}
-                                  {...provided.draggableProps}
-                                  {...provided.dragHandleProps}
-                                  task = {task}
-                                  link = 'detail'
-                                />
+                                    <Task
+                                    taskDetailForm = {taskDetailForm}
+                                    setOpenTaskDetailForm = {setOpenTaskDetailForm}
+                                    myref = {provided.innerRef}
+                                    {...provided.draggableProps}
+                                    {...provided.dragHandleProps}
+                                    task = {task}
+                                    link = 'detail'
+                                  />
                                 )
                               }
-                        </Draggable>))
+                          </Draggable>))
                       }
-                      {provided.placeholder}
                     </div>
                 )}
               </Droppable>
-                <button 
-                  className={styles.btn_Add_task}
-                  type = 'submit'>
-                    <IoIosAdd className={styles.icon_add}/>
-                    Add Task
-                </button>
+                
             </div>
             }
             
           </div>
+          <TaskDetailContainer
+              taskDetailForm = {taskDetailForm}
+              setOpenTaskDetailForm = {setOpenTaskDetailForm}
+      />
       </div>
   )
 }

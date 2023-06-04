@@ -9,6 +9,15 @@ li.li_tag {
     color: #7c8389;
     display: flex;
     justify-content: space-between;
+    .item_option
+    {
+        display: flex;
+        column-gap: 4px;
+        .check_icon
+        {
+            cursor:pointer;
+        }
+    }
 }
 li.li_tag::before
 {

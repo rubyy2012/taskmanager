@@ -4,50 +4,6 @@
     display:flex;
     flex-direction:column;
     width: 100%;
-    .upcoming_projects
-    {
-        width:100%;
-        display:flex;
-        flex-direction: column;
-        .day_item
-        {
-            width:100%;
-            padding: 10px 0;
-            text-align: left;
-            display:flex;
-            justify-content:space-between;
-            align-items: center;
-            .day_item_left {
-                display:flex;
-                align-items: center;
-                color:$text-color;
-                .add_icon,
-                p {
-                    color: #ffff;
-                }
-                p {
-                    margin-left:0.5rem;
-                    flex:1; 
-                    color:$text-color;
-                    font-weight: 600;
-                }
-                .today_icon {
-                    color: #ea5fc7;
-                }
-                .upcoming_icon 
-                {
-                    color: #66c3c2;
-                }
-            }
-            .day_item_right 
-            {
-                span {
-                    color: $digit-color;
-                }
-            }
-        }
-    }
-
     .workspaces_container
     {
         display:flex;
@@ -85,12 +41,31 @@
                 .dashboard_icon
                 {
                     color: orange;
+                    width:24px;
+                    height:24px;
+                    min-width: 30px;
                 }
                 .allprojects_icon {
                     color:#B2A4FF;
+                    width:24px;
+                    height:24px;
+                    min-width: 30px;
+
                 }
-                .timelines_icon {
+                .calendars_icon {
                     color: #19A7CE;
+                    width:20px;
+                    height:20px;
+                    min-width: 30px;
+
+                }
+                .recently_icon
+                {
+                    color: #df4a4a;
+                    width:22px;
+                    height:22px;
+                    min-width: 30px;
+
                 }
                 &>span {
                     margin-left:5px;
@@ -103,6 +78,7 @@
             }
         }
     }
+    
     
     .side_bar_item
     {

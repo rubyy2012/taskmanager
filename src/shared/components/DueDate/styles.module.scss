@@ -1,84 +1,25 @@
-.datetime_container
+.duedate_container
 {
-    // padding: 20px;
     max-width: 100%;
-    right: 0;
-    top:-300%;
     display: flex;
+    left:0;
+    bottom:100%;
     position: absolute;
     z-index:2;
-    .datetime_body
+    .duedate_body
     {
-        background-color: #f9fdff;
+        background-color: #f8fafb;
+        border: 1px solid #d6dae2;
+        padding: 4px 8px;
         border-radius: 6px;
         -webkit-border-radius: 6px;
         -moz-border-radius: 6px;
         -ms-border-radius: 6px;
         -o-border-radius: 6px;
-        .date_container
+        .date_picker
         {
-            .date_picker
-            {
-                max-height: 300px !important;
-                width: 270px !important;
-            }
+            max-height: 300px !important;
+            width: 270px !important;
         }
-        .time_container
-        {
-            padding: 20px;
-            border-bottom: 1px solid #e5e6e7;
-            border-top: 1px solid #e5e6e7;
-            display: flex;
-            align-items: center;
-
-            &>span {
-                color: #424251;
-                font-weight: 600;
-                font-size: 0.9rem;
-                margin-right: 20px;
-            }
-            .custom_time_picker
-            {
-                width: 117px !important;
-                input {
-                    font-size: 14px;
-                    color: #424251;
-                    border-color: #424251;
-                }
-                button {
-                    padding-left: 0;
-                }
-            }
-            
-              
-        }
-        .submit_areas
-        {
-            padding: 14px 20px;
-            display: flex;
-            column-gap: 20px;
-            .btn_submit {
-                text-transform: capitalize;
-                font-size: 0.9rem;
-                background-color: #48a6a6;
-                color: #dbe3ec;
-                border-radius: 8px;
-                -webkit-border-radius: 8px;
-                -moz-border-radius: 8px;
-                -ms-border-radius: 8px;
-                -o-border-radius: 8px;
-                box-shadow: none;
-            }
-            .btn_cancel
-            {
-                text-transform: capitalize;
-                font-size: 0.9rem;
-                border: 1px solid #d6dae2;
-                color: #3e3e51;
-                border-radius: 8px;
-
-            }
-        }
-        
     }
 }
